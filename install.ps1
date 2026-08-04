@@ -32,7 +32,9 @@ if ($ZMIENNA_PATH -notmatch [regex]::Escape($KATALOG_INSTALACJI)) {
     Write-Host "Dodawanie ścieżki $KATALOG_INSTALACJI do zmiennej środowiskowej PATH..."
     $NOWY_PATH = "$KATALOG_INSTALACJI;$ZMIENNA_PATH"
     [Environment]::SetEnvironmentVariable("Path", $NOWY_PATH, "User")
-    Write-Host "Musisz uruchomić PowerShell ponownie, aby system zauważył zmiany w PATH."
+    
+    # NAPRAWA: Zaktualizowanie PATH w bieżącej sesji PowerShell
+    $env:Path = $NOWY_PATH
 }
 
-Write-Host "Gotowe! Otwórz nowe okno terminala i wpisz 'suchar', aby użyć aplikacji."
+Write-Host "Gotowe! Wpisz 'suchar', aby użyć aplikacji."

@@ -35,11 +35,21 @@ if ! echo "$PATH" | grep -q "$KATALOG_INSTALACJI"; then
     echo "Dodawanie ścieżki $KATALOG_INSTALACJI do zmiennej PATH..."
     if [ -n "$ZSH_VERSION" ] || [ "$SHELL" = "*/zsh" ] || [ -f "$HOME/.zshrc" ]; then
         echo "export PATH=\"$KATALOG_INSTALACJI:\$PATH\"" >> "$HOME/.zshrc"
-        echo "Zrestartuj terminal lub wpisz: source ~/.zshrc"
+        KOMENDA_RESTARTU="source ~/.zshrc"
     elif [ -n "$BASH_VERSION" ] || [ -f "$HOME/.bashrc" ]; then
         echo "export PATH=\"$KATALOG_INSTALACJI:\$PATH\"" >> "$HOME/.bashrc"
-        echo "Zrestartuj terminal lub wpisz: source ~/.bashrc"
+        KOMENDA_RESTARTU="source ~/.bashrc"
     fi
+    
+    echo ""
+    echo "===================================================================="
+    echo " WAŻNE: Ze względów bezpieczeństwa systemów UNIX, skrypt uruchamiany"
+    echo " przez 'curl | sh' nie może zmodyfikować PATH w otwartym terminalu."
+    echo ""
+    echo " Aby użyć komendy 'suchar' już teraz, skopiuj i wklej to:"
+    echo " $KOMENDA_RESTARTU"
+    echo "===================================================================="
+    echo ""
+else
+    echo "Gotowe! Wpisz 'suchar', aby użyć aplikacji."
 fi
-
-echo "Gotowe! Wpisz 'suchar' w nowym oknie terminala, aby użyć aplikacji."
