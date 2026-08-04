@@ -1,20 +1,42 @@
-# Suchary CLI
+# 🥑 Suchary CLI
 
-## Użycie
+Oficjalne narzędzie wiersza poleceń do pobierania dawki dobrego (lub złego) humoru bezpośrednio w Twoim terminalu.
 
-Uruchom program bez argumentów, aby pobrać losowy kawał:
+---
+
+## 🚀 Instalacja
+
+Zainstaluj `suchar` jedną komendą. Skrypt automatycznie rozpozna Twój system operacyjny oraz architekturę procesora, pobierze najnowszą binarkę i doda ją do zmiennej środowiskowej `PATH`.
+
+### Linux / macOS
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/SucharyAPI/suchary-cli/main/install.sh | sh
+```
+
+### Windows (PowerShell)
+
+```powershell
+irm https://raw.githubusercontent.com/SucharyAPI/suchary-cli/main/install.ps1 | iex
+```
+
+---
+
+## 💻 Użycie
+
+Uruchom program bez argumentów, aby wylosować kawał:
 
 ```bash
 suchar
 ```
 
-Możesz przekazać nazwę kategorii, aby otrzymać kawał z konkretnej grupy.
+Możesz także podać nazwę kategorii jako argument, aby otrzymać suchar z konkretnej grupy:
 
 ```bash
 suchar <kategoria>
 ```
 
-## Dostępne kategorie
+### 🏷️ Dostępne kategorie
 
 - `programowanie`
 - `dwuznaczny`
@@ -24,7 +46,7 @@ suchar <kategoria>
 - `czarny`
 - `inny`
 
-## Przykłady
+### 📝 Przykłady
 
 ```bash
 suchar programowanie
@@ -32,10 +54,14 @@ suchar szkolny
 suchar suchar
 ```
 
-## Obsługa błędów
+---
 
-Program rozpoznaje błędy połączenia z siecią, problemy z API HTTP i błędy parsowania JSON. W przypadku nieznanej kategorii wyświetli komunikat z listą dostępnych opcji.
+## 🛡️ Obsługa błędów
 
-## Informacje dodatkowe
+Program posiada wbudowaną obsługę błędów – wyłapuje brak połączenia z siecią, błędy serwera HTTP oraz problemy z parsowaniem odpowiedzi JSON. W przypadku wpisania niepoprawnej kategorii, aplikacja poinformuje Cię o tym i wyświetli listę dostępnych opcji.
 
-`Suchary CLI` wykorzystuje bibliotekę oficjalną bibliotekę sucharypl-go do komunikacji z API.
+---
+
+## ℹ️ Informacje dodatkowe
+
+`Suchary CLI` wykorzystuje oficjalną bibliotekę [`sucharypl-go`](https://github.com/SucharyAPI/sucharypl-go) do integracji z ogólnopolską bazą żartów SucharyAPI
