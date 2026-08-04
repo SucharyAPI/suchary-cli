@@ -15,5 +15,6 @@ go.work.sum
 .idea/
 .vscode/
 
-# Binarka
+# Binarki
 suchar
+dist/
